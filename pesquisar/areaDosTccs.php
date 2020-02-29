@@ -10,10 +10,13 @@
 	</head>
 	<body>
 		<h1>Pesquisar Usuários</h1>
-		<form method="POST" id="form-pesquisa" action="">
-			<label>Pesquisar: </label>
-			<input type="text" name="pesquisa" id="pesquisa" placeholder="Digite o nome do usuário">
-		</form>
+		<div class="offset-md-3 col-12 col-md-6 mt-4">
+			<form method="POST" id="form-pesquisa" action="">
+				<label>Pesquisar: </label>
+				<input type="text" name="pesquisa" id="pesquisa" class="form-control" placeholder="PESQUISAR O TCC">
+			</form>
+		</div>
+
 
 
 		<div class="container">

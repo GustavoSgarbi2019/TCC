@@ -10,7 +10,7 @@
     </head>
     <body>
 		<div class="container">
-			<h2>Listar Usuários</h2>
+			<h2>Listar Professor</h2>
                 <span id="conteudo"></span><br><br><br>
 		</div>
 		
@@ -26,7 +26,7 @@
 					pagina: pagina,
 					qnt_result_pg: qnt_result_pg
 				}
-				$.post('pagTcc.php', dados , function(retorna){
+				$.post('./professor.php', dados , function(retorna){
 					//Subtitui o valor no seletor id="conteudo"
 					$("#conteudo").html(retorna);
 				});

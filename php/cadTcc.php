@@ -1,5 +1,5 @@
 <?php
-    require_once('../login/conexao.php');
+    require_once('../conexao/conexao.php');
 
       // TCC
       $TITULO = $_POST['TITULO'];
@@ -19,7 +19,8 @@
       //$sql_code = "INSERT INTO tcc (ARQUIVO) VALUES('$novo_nome')";
       $sql = "INSERT INTO tcc (TITULO, RESUMO, ARQUIVO, DATA_CAD, CURSO_IDCURSO) VALUES ('".$TITULO."', '".$RESUMO."', '".$novo_nome."',  '".$DATA_CAD."', '".$CURSO."')";
       $result = mysqli_query($conn, $sql);
-  
+      header("Location: ./inicial.php");
+      
       /*
       if($mysqli->query($sql_code))
         $msg = "ARQUIVO enviado com sucesso!";

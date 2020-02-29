@@ -1,5 +1,17 @@
 <?php
-include_once "../login/conexao.php";
+session_start();
+if(!empty($_SESSION['ID_USUARIO'])){
+	echo "Olá ".$_SESSION['NOME'].", Bem vindo <br>";
+	echo "<a href='./login/sair.php'>Sair</a>";
+}else{
+	$_SESSION['msg'] = "<div class='alert alert-danger'>Área restrita!</div>";
+	header("Location: ./login/login.php");	
+}
+?>
+
+<?php
+include_once "../conexao/conexao.php";
+$ID_USUARIO = $_SESSION['ID_USUARIO'];
 
 $pagina = filter_input(INPUT_POST, 'pagina', FILTER_SANITIZE_NUMBER_INT);
 $qnt_result_pg = filter_input(INPUT_POST, 'qnt_result_pg', FILTER_SANITIZE_NUMBER_INT);
@@ -7,9 +19,8 @@ $qnt_result_pg = filter_input(INPUT_POST, 'qnt_result_pg', FILTER_SANITIZE_NUMBE
 $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
 
 //consultar no banco de dados
-
-
 $result_usuario = "SELECT 
+tcc.ID_TCC,
 tcc.TITULO,
 tcc.RESUMO, 
 tcc.ARQUIVO, 
@@ -22,6 +33,7 @@ from tcc
 INNER JOIN cursos  ON tcc.CURSO_IDCURSO = cursos.ID_CURSOS
 INNER JOIN autores ON tcc.AUTORES_IDAUTORES = autores.ID_AUTORES
 INNER JOIN imagens ON tcc.IMAGENS_IDIMG = imagens.ID_IMG 
+WHERE tcc.`STATUS` = 'D' AND tcc.AUTORES_IDAUTORES = $ID_USUARIO
 ORDER BY tcc.TITULO DESC LIMIT $inicio, $qnt_result_pg";
 
 
@@ -51,12 +63,16 @@ if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
 						</p>
 						
 						<a href="../<?php echo $row_usuario['ARQUIVO'] ?>"> PDF</a>
+
+						<?php
+						echo "<a href='../paginaCorrecao.php?ID_TCC=" . $row_usuario['ID_TCC'] . "'>Editar</a>";
+						?>
 					</div>
 				</div>  
 			</div>
 
 
-            <?php
+			<?php
                 }
             ?>
         </div>

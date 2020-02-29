@@ -1,6 +1,6 @@
 <?php
 //Incluir a conexão com banco de dados
-include_once '../login/conexao.php';
+include_once '../conexao/conexao.php';
 
 $usuarios = filter_input(INPUT_POST, 'palavra', FILTER_SANITIZE_STRING);
 

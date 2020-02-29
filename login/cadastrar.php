@@ -3,7 +3,7 @@ session_start();
 ob_start();
 $btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_SANITIZE_STRING);
 if($btnCadUsuario){
-	include_once '../login/conexao.php';
+	include_once '../conexao/conexao.php';
 	$dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 	
 	$erro = false;
