@@ -50,16 +50,11 @@ if(!empty($_SESSION['ID_USUARIO'])){
         </nav>
 
         <?php
-        include_once("./conexao/conexao.php");
-        $ID_TCC = filter_input(INPUT_GET, 'ID_TCC', FILTER_SANITIZE_NUMBER_INT);
-        $result_usuario = "SELECT * FROM tcc WHERE ID_TCC = '$ID_TCC'";
-        $resultado_usuario = mysqli_query($conn, $result_usuario);
-        $row_usuario = mysqli_fetch_assoc($resultado_usuario);
-        
-		if(isset($_SESSION['msg'])){
-			echo $_SESSION['msg'];
-			unset($_SESSION['msg']);
-		}
+            include_once("./conexao/conexao.php");
+            $ID_TCC = filter_input(INPUT_GET, 'ID_TCC', FILTER_SANITIZE_NUMBER_INT);
+            $result_usuario = "SELECT * FROM tcc WHERE ID_TCC = '$ID_TCC'";
+            $resultado_usuario = mysqli_query($conn, $result_usuario);
+            $row_usuario = mysqli_fetch_assoc($resultado_usuario);
         ?>
 
         <div class="container">
@@ -67,11 +62,12 @@ if(!empty($_SESSION['ID_USUARIO'])){
                 <div class="col-12 offset-md-3 col-md-6">
                     <p>
                         <form enctype="multipart/form-data" action="./php/cadMelhorias.php" method="post">
-                        <input type="hidden" name="ID_TCC" value="<?php echo $row_usuario['ID_TCC']; ?>">
+                            <input type="hidden" name="ID_TCC" value="<?php echo $row_usuario['ID_TCC']; ?>">
 
                             <div class="form-group">
                                 <label for="">O que será editado no projeto:</label>
-                                <textarea class="form-control" id="MELHORIAS" rows="5" name="MELHORIAS"> <?php echo $row_usuario['MELHORIAS']; ?> </textarea>
+                                <input class="form-control" id="MELHORIAS" name="MELHORIAS" value="<?php echo $row_usuario['MELHORIAS']; ?>"> 
+                                <!-- <textarea class="form-control mt-3" name="MELHORIAS" id="MELHORIAS" cols="30" rows="10"><?php echo $row_usuario['MELHORIAS']; ?></textarea> -->
                             </div>
 
                             <h6 class="mt-5">Caso o projeto esteja completo, dê sua nota:</h6>

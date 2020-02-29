@@ -23,6 +23,7 @@ $inicio = ($pagina * $qnt_result_pg) - $qnt_result_pg;
 //consultar no banco de dados
 
 $result_usuario = "SELECT 
+tcc.ID_TCC,
 tcc.TITULO,
 tcc.RESUMO, 
 tcc.ARQUIVO, 
@@ -36,7 +37,7 @@ from tcc
 INNER JOIN cursos  ON tcc.CURSO_IDCURSO = cursos.ID_CURSOS
 INNER JOIN autores ON tcc.AUTORES_IDAUTORES = autores.ID_AUTORES
 INNER JOIN imagens ON tcc.IMAGENS_IDIMG = imagens.ID_IMG 
-WHERE tcc.`STATUS` = 'D' AND tcc.AUTORES_IDAUTORES = 18
+WHERE tcc.`STATUS` = 'D' AND tcc.AUTORES_IDAUTORES = 16
 ORDER BY tcc.TITULO DESC LIMIT $inicio, $qnt_result_pg";
 
 
@@ -66,6 +67,10 @@ if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
 						</p>
 						
 						<a href="../<?php echo $row_usuario['ARQUIVO'] ?>"> PDF</a>
+
+						<?php
+						echo "<a href='../paginaMelhorias.php?ID_TCC=" . $row_usuario['ID_TCC'] . "'>Editar</a>";
+						?>
 					</div>
 				</div>  
 			</div>
