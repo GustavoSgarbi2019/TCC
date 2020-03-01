@@ -1,14 +1,15 @@
 <?php
-session_start();
-include_once "../conexao/conexao.php";
 
+session_start();
 if(!empty($_SESSION['ID_USUARIO'])){
-	echo "Olá ".$_SESSION['NOME'].", Bem vindo <br>";
-	echo "<a href='./login/sair.php'>Sair</a>";
+	//echo "Olá ".$_SESSION['NOME'].", Bem vindo <br>";
+	//echo "<a href='./login/sair.php'>Sair</a>";
 }else{
 	$_SESSION['msg'] = "<div class='alert alert-danger'>Área restrita!</div>";
 	header("Location: ./login/login.php");	
 }
+
+
 
 $ID_USUARIO = $_SESSION['ID_USUARIO'];
 

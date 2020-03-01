@@ -23,11 +23,15 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="./login/cadastrarvalida.php">Cadastrar</a>
+                    <a class="nav-link" href="./pesquisar/areaDosTccs.php">Pesquisar Tcc</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="inicial.php">Página de Cadastro</a>
+                    <a class="nav-link" href="./cadastraTccs.php">Cadastrar Tcc</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./login/cadastrar.php">Cadastrar Usuario</a>
                 </li>
 
                 <li class="nav-item">
@@ -46,7 +50,7 @@
                         <img src="./img/imagens/capa.png" class="img-fluid" alt="Responsive image" width="" height="">
                     </div>
 
-                        <form enctype="multipart/form-data" action="./pesquisar/pesquisa.php" method="post">
+                        <form enctype="multipart/form-data" action="./pesquisar/areaDosTccs.php" method="post">
                             <div class="form-label-group mt-3">
                                 <button type="submit" class="btn btn-outline-danger btn-block btn-lg">Pesquisar</button>
                             </div>
@@ -58,7 +62,7 @@
                             </div>
                         </form>
 
-                        <form enctype="multipart/form-data" action="./login/cadastrarvalida.php" method="post">
+                        <form enctype="multipart/form-data" action="./login/cadastrar.php" method="post">
                             <div class="form-label-group mt-3">
                                 <button type="submit" class="btn btn-outline-danger btn-block btn-lg">Cadastrar</button>
                             </div>

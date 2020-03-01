@@ -19,7 +19,7 @@
             <img src="./img/imgTelaInicial/etec.png" width="90">
             <ul class="right hide-on-med-and-down">
                 <li><a href="inicial.php">Cadastrar TCC's</a></li>
-                <li><a href="./login/cadastrarvalida.php">Cadastrar Usuários</a></li>
+                <li><a href="./login/cadastrar.php">Cadastrar Usuários</a></li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
